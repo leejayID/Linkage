@@ -1,1 +1,3 @@
 # LoveFreshBeen
+
+![Usage](./Untitled.gif)
