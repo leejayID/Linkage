@@ -28,7 +28,6 @@
 {
     NSInteger _selectIndex;
     BOOL _isScrollDown;
-    CGFloat _lastOffsetY;
 }
 
 - (void)viewDidLoad
@@ -38,7 +37,6 @@
 
     _selectIndex = 0;
     _isScrollDown = YES;
-    _lastOffsetY = 0;
 
     self.view.backgroundColor = [UIColor whiteColor];
 
@@ -77,7 +75,6 @@
     [self.tableView reloadData];
     [self.collectionView reloadData];
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
-
 }
 
 #pragma mark - Getters
@@ -146,7 +143,7 @@
     return _collectionView;
 }
 
-#pragma mark - TableView
+#pragma mark - UITableView DataSource Delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -167,7 +164,7 @@
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:_selectIndex] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
 }
 
-#pragma mark - CollectionView
+#pragma mark - UICollectionView DataSource Delegate
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -242,14 +239,16 @@
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
 }
 
-#pragma mark - ScrollView
+#pragma mark - UIScrollView Delegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    static float lastOffsetY = 0;
+    
     if (self.collectionView == scrollView)
     {
-        _isScrollDown = _lastOffsetY < scrollView.contentOffset.y;
-        _lastOffsetY = scrollView.contentOffset.y;
+        _isScrollDown = lastOffsetY < scrollView.contentOffset.y;
+        lastOffsetY = scrollView.contentOffset.y;
     }
 }
 

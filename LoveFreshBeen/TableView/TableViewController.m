@@ -43,6 +43,7 @@
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     NSArray *categories = dict[@"data"][@"categories"];
     NSDictionary *productDict = dict[@"data"][@"products"];
+    
     for (NSDictionary *dict in categories)
     {
         CategoryModel *model = [CategoryModel objectWithDictionary:dict];
@@ -67,10 +68,23 @@
 
 - (void)loadNewData
 {
+    // 延迟两秒结束刷新
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.rightTableView.mj_header endRefreshing];
     });
 }
+
+#pragma mark - FooterView
+
+- (UIImageView *)loadFooterView
+{
+    UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 80, 70)];
+    imageV.contentMode = UIViewContentModeCenter;
+    imageV.image = [UIImage imageNamed:@"v2_common_footer"];
+    return imageV;
+}
+
+#pragma mark - Getters
 
 - (NSMutableArray *)categoryData
 {
@@ -121,13 +135,7 @@
     return _rightTableView;
 }
 
-- (UIImageView *)loadFooterView
-{
-    UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 80, 70)];
-    imageV.contentMode = UIViewContentModeCenter;
-    imageV.image = [UIImage imageNamed:@"v2_common_footer"];
-    return imageV;
-}
+#pragma mark - TableView DataSource Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -221,6 +229,8 @@
         [_rightTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:_selectIndex] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }
 }
+
+#pragma mark - UISrcollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
