@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^Succeed)(id result);
-typedef void(^Failed)(NSError *error);
-
-@interface HttpManager : NSObject 
+@interface HttpManager : NSObject
 
 + (instancetype)sharedManager;
 
-- (void)getDataWithURLString:(NSString *)urlString succeed:(Succeed)succeed failed:(Failed)failed;
+- (void)getDataWithURLString:(NSString *)urlString
+                     succeed:(void (^)(id response))succeed
+                      failed:(void (^)(NSError *error))failed;
 
 @end

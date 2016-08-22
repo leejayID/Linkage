@@ -14,9 +14,7 @@
 #define rgba(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
 #import <UIImageView+WebCache.h>
-#import <MJExtension.h>
 #import <MJRefresh.h>
-#import <AFNetworking.h>
-#import <HYBNetworking.h>
+#import "NSObject+Property.h"
 
 #endif /* Header_h */

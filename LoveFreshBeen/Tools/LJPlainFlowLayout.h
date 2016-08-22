@@ -10,6 +10,9 @@
 
 @interface LJPlainFlowLayout : UICollectionViewFlowLayout
 
-@property (nonatomic, assign) CGFloat navHeight;// default is 0.0
+/**
+ *  导航栏高度，默认为0
+ */
+@property (nonatomic, assign) CGFloat navHeight;
 
 @end

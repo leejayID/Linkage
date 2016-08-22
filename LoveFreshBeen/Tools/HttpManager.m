@@ -7,33 +7,40 @@
 //
 
 #import "HttpManager.h"
+#import "AFNetworking.h"
 
 @implementation HttpManager
 
-static HttpManager *shared_manager = nil;
-
-+ (instancetype)sharedManager {
++ (instancetype)sharedManager
+{
+    static HttpManager *shared_manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        shared_manager = [[self alloc]init];
+        shared_manager = [[self alloc] init];
     });
     return shared_manager;
 }
 
-+ (instancetype)allocWithZone:(struct _NSZone *)zone {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        shared_manager = [super allocWithZone:zone];
-    });
-    return shared_manager;
-}
-
-- (id)copyWithZone:(NSZone *)zone {
-    return shared_manager;
-}
-
-- (void)getDataWithURLString:(NSString *)urlString succeed:(Succeed)succeed failed:(Failed)failed {
+- (void)getDataWithURLString:(NSString *)urlString
+                     succeed:(void (^)(id))succeed
+                      failed:(void (^)(NSError *))failed
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.requestSerializer.timeoutInterval = 15;
     
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", nil];
+    
+    [manager GET:urlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (succeed) {
+            succeed(responseObject);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (failed) {
+            failed(error);
+        }
+    }];
 }
 
 @end

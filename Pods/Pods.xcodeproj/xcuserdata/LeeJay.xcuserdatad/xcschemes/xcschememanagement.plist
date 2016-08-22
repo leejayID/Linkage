@@ -4,21 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>HYBNetworking.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>MJExtension.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,7 +22,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>64EB8782B078742B9CE2A419D3D0CAB8</key>
+		<key>762D1DA83E192BAA4A2194262A3F7CEE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,22 +32,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>928353533005A4198EBDA5B700D37B64</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9D8FF29469733332951361592E1D5EFD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9EAB3E42EF957541E6C3C76D35FD008E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B9274C6AECDBA3D03D2CD1390EEEEDC3</key>
+		<key>CDDA973ABA719EE991B95B3EEBFB30ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>

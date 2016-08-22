@@ -10,15 +10,14 @@
 
 @implementation HeaderView
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    
-    if (self = [super initWithFrame:frame]) {
-        
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame])
+    {
         self.backgroundColor = rgba(240, 240, 240, 0.8);
-        self.name = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 100, 20)];
+        self.name = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 100, 20)];
         self.name.font = [UIFont systemFontOfSize:13];
         [self addSubview:self.name];
-        
     }
     return self;
 }

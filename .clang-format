@@ -1,0 +1,53 @@
+# 基础样式
+BasedOnStyle: LLVM
+
+# 缩进宽度
+IndentWidth: 4
+
+# 花括号的换行方式(Attach，Stroustrup, Allman-所有大括号都另起一行)
+BreakBeforeBraces: Allman
+
+# 支持一行的if
+AllowShortIfStatementsOnASingleLine: false
+
+# 是否允许循环单行
+AllowShortLoopsOnASingleLine: false
+
+# switch的case缩进
+IndentCaseLabels: true
+
+# 针对OC的block的缩进宽度
+ObjCBlockIndentWidth: 4
+
+# 针对OC，属性名后加空格
+ObjCSpaceAfterProperty: true
+
+# 每行字符的宽度限制，0不限制
+ColumnLimit: 0
+
+# 注释对齐
+AlignTrailingComments: true
+
+# 括号后加空格
+SpaceAfterCStyleCast: true
+
+# 不在小括号里加空格
+SpacesInParentheses: false
+
+# 不在中括号里加空格
+SpacesInSquareBrackets: false
+
+# 指针对准
+# DerivePointerAlignment: true
+
+# @[]里面两边空格，默认true
+SpacesInContainerLiterals: false
+
+# 赋值前(=)的空格 默认true
+#SpaceBeforeAssignmentOperators: true
+
+# 指针的位置
+PointerAlignment: Right
+
+# 最大空的行数
+MaxEmptyLinesToKeep: 1

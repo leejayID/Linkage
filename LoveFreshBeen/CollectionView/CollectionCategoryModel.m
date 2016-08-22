@@ -10,8 +10,9 @@
 
 @implementation CollectionCategoryModel
 
-+ (NSDictionary *)mj_objectClassInArray {
-    return @{@"subcategories":[SubCategoryModel class]};
++ (NSDictionary *)objectClassInArray
+{
+    return @{ @"subcategories": @"SubCategoryModel"};
 }
 
 @end

@@ -10,16 +10,16 @@
 
 @implementation RefreshHeader
 
-- (void)prepare {
-    
+- (void)prepare
+{
     [super prepare];
-    
+
     self.stateLabel.hidden = NO;
     self.lastUpdatedTimeLabel.hidden = YES;
-    
+
     [self setImages:@[[UIImage imageNamed:@"v2_pullRefresh1"]] forState:MJRefreshStateIdle];
     [self setImages:@[[UIImage imageNamed:@"v2_pullRefresh2"]] forState:MJRefreshStatePulling];
-    [self setImages:@[[UIImage imageNamed:@"v2_pullRefresh1"],[UIImage imageNamed:@"v2_pullRefresh2"]] forState:MJRefreshStateRefreshing];
+    [self setImages:@[[UIImage imageNamed:@"v2_pullRefresh1"], [UIImage imageNamed:@"v2_pullRefresh2"]] forState:MJRefreshStateRefreshing];
 
     [self setTitle:@"下拉可以刷新" forState:MJRefreshStateIdle];
     [self setTitle:@"松手开始刷新" forState:MJRefreshStatePulling];

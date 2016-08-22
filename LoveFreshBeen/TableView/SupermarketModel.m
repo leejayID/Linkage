@@ -10,10 +10,9 @@
 
 @implementation CategoryModel
 
-+ (void)load {
-    [CategoryModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-        return @{@"categoryId":@"id"};
-    }];
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{ @"categoryId": @"id" };
 }
 
 @end
