@@ -2,7 +2,9 @@
 ## 前言
 现在市面上有很多app都有联动功能，有的是两个TableView之间的联动，比如美团外卖，百度外卖，饿了么等等。有的是TablView与CollectionView之间的联动，比如礼物说等等。
 
-本文仿造了美团外卖和礼物说，分别实现了两个TableView之间和TablView与CollectionView之间的联动效果，效果图看下面的gif图。先附上gif图的demo下载链接，[【GitHub】](https://github.com/leejayID/Linkage)、[【Code4App】](https://github.com/leejayID/Linkage)、[【OSChina】](https://git.oschina.net/Lee_Jay/Linkage)，简书文章[地址]()，配合demo一起看文章，效果会更佳。
+本文仿造了美团外卖和礼物说，分别实现了两个TableView之间和TablView与CollectionView之间的联动效果，效果图看下面的gif图。
+
+先附上gif图的demo下载链接，[【GitHub】](https://github.com/leejayID/Linkage)、[【Code4App】](https://github.com/leejayID/Linkage)、[【OSChina】](https://git.oschina.net/Lee_Jay/Linkage)，简书文章[地址]()，配合demo一起看文章，效果会更佳。
 
 ![Usage](./Untitled.gif)
 
