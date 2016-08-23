@@ -4,7 +4,8 @@
 
 本文仿造了美团外卖和礼物说，分别实现了两个TableView之间和TablView与CollectionView之间的联动效果，效果图看下面的gif图。
 
-先附上gif图的demo下载链接，[【GitHub】](https://github.com/leejayID/Linkage)、[【Code4App】](https://github.com/leejayID/Linkage)、[【OSChina】](https://git.oschina.net/Lee_Jay/Linkage)，简书文章[地址]()，配合demo一起看文章，效果会更佳。
+先附上gif图的demo下载链接，[【GitHub】](https://github.com/leejayID/Linkage)、[【Code4App】](http://www.code4app.com/forum.php?mod=viewthread&tid=10225&page=1&extra=#pid248338
+)、[【OSChina】](https://git.oschina.net/Lee_Jay/Linkage)，简书文章[地址](http://www.jianshu.com/p/7e534656988d)，配合demo一起看文章，效果会更佳。
 
 ![Usage](./Untitled.gif)
 
@@ -68,7 +69,7 @@ for (NSDictionary *dict in foods)
 
 再将右边的TableView关联左边的TableView：标记一下RightTableView的滚动方向，然后分别在TableView分区标题即将展示和展示结束的代理函数里面处理逻辑。
 * 1.在TableView分区标题即将展示里面，判断当前的tableView是RightTableView，RightTableView滑动的方向向上，RightTableView是用户拖拽而产生滚动的（主要判断RightTableView是用户拖拽的，还是点击LeftTableView滚动的），如果三者都成立，那么LeftTableView的选中行就是RightTableView的当前section。
-* 2.在TableView分区标题展示结束里面，判断当前的tableView是RightTableView，滑动的方向向下，而且用户的手是拖拽RightTableView状态，如果三者都成立，那么LeftTableView的选中行就是RightTableView的当前section-1。
+* 2.在TableView分区标题展示结束里面，判断当前的tableView是RightTableView，滑动的方向向下，RightTableView是用户拖拽而产生滚动的，如果三者都成立，那么LeftTableView的选中行就是RightTableView的当前section-1。
 
 ```objc
 // 标记一下RightTableView的滚动方向，是向上还是向下
@@ -217,6 +218,7 @@ TableView与CollectionView之间的联动就这么实现了，是不是也很简
 ## 最后
 由于笔者水平有限，文中如果有错误的地方，或者有更好的方法，还望大神指正。
 
-附上本文的所有demo下载链接，[【GitHub】](https://github.com/leejayID/Linkage)、[【Code4App】](https://github.com/leejayID/Linkage)、[【OSChina】](https://git.oschina.net/Lee_Jay/Linkage)，配合demo一起看文章，效果会更佳。
+附上本文的所有demo下载链接，[【GitHub】](https://github.com/leejayID/Linkage)、[【Code4App】](http://www.code4app.com/forum.php?mod=viewthread&tid=10225&page=1&extra=#pid248338
+)、[【OSChina】](https://git.oschina.net/Lee_Jay/Linkage)，配合demo一起看文章，效果会更佳。
 
 如果你看完后觉得对你有所帮助，还望在GitHub上点个star。赠人玫瑰，手有余香。
