@@ -5,7 +5,7 @@
 本文仿造了美团外卖和礼物说，分别实现了两个TableView之间和TablView与CollectionView之间的联动效果，效果图看下面的gif图。
 
 先附上gif图的demo下载链接，[【GitHub】](https://github.com/leejayID/Linkage)、[【Code4App】](http://www.code4app.com/forum.php?mod=viewthread&tid=10225&page=1&extra=#pid248338
-)、[【OSChina】](https://git.oschina.net/Lee_Jay/Linkage)，简书文章[地址](http://www.jianshu.com/p/7e534656988d)，配合demo一起看文章，效果会更佳。
+)、[【OSChina】](https://git.oschina.net/Lee_Jay/Linkage)，简书文章[地址](http://www.jianshu.com/p/7e534656988d)，CSDN文章[地址](http://blog.csdn.net/leejay_carson/article/details/52293313)，配合demo一起看文章，效果会更佳。
 
 ![Usage](./Untitled.gif)
 
