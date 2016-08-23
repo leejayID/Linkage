@@ -46,12 +46,7 @@
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     NSArray *categories = dict[@"data"][@"categories"];
-    [self setData:categories];
-}
-
-- (void)setData:(NSArray *)datas
-{
-    for (NSDictionary *dict in datas)
+    for (NSDictionary *dict in categories)
     {
         CollectionCategoryModel *model =
         [CollectionCategoryModel objectWithDictionary:dict];
@@ -68,6 +63,7 @@
     [self.tableView reloadData];
     [self.collectionView reloadData];
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+
 }
 
 #pragma mark - Getters
@@ -210,29 +206,34 @@
     return CGSizeMake(SCREEN_WIDTH, 30);
 }
 
+// CollectionView分区标题即将展示
 - (void)collectionView:(UICollectionView *)collectionView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath
 {
+    // 当前CollectionView滚动的方向向上，CollectionView是用户拖拽而产生滚动的（主要是判断CollectionView是用户拖拽而滚动的，还是点击TableView而滚动的）
     if (!_isScrollDown && collectionView.dragging)
     {
         [self selectRowAtIndexPath:indexPath.section];
     }
 }
 
+// CollectionView分区标题展示结束
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingSupplementaryView:(nonnull UICollectionReusableView *)view forElementOfKind:(nonnull NSString *)elementKind atIndexPath:(nonnull NSIndexPath *)indexPath
 {
+    // 当前CollectionView滚动的方向向下，CollectionView是用户拖拽而产生滚动的（主要是判断CollectionView是用户拖拽而滚动的，还是点击TableView而滚动的）
     if (_isScrollDown && collectionView.dragging)
     {
         [self selectRowAtIndexPath:indexPath.section + 1];
     }
 }
 
+// 当拖动CollectionView的时候，处理TableView
 - (void)selectRowAtIndexPath:(NSInteger)index
 {
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
 }
 
 #pragma mark - UIScrollView Delegate
-
+// 标记一下CollectionView的滚动方向，是向上还是向下
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     static float lastOffsetY = 0;

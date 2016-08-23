@@ -15,7 +15,7 @@
 @interface TableViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *categoryData;
-@property (nonatomic, strong) NSMutableArray *productData;
+@property (nonatomic, strong) NSMutableArray *foodData;
 @property (nonatomic, strong) UITableView *leftTableView;
 @property (nonatomic, strong) UITableView *rightTableView;
 
@@ -52,7 +52,7 @@
         {
             [datas addObject:f_model];
         }
-        [self.productData addObject:datas];
+        [self.foodData addObject:datas];
     }
 
     [self.view addSubview:self.leftTableView];
@@ -72,13 +72,13 @@
     return _categoryData;
 }
 
-- (NSMutableArray *)productData
+- (NSMutableArray *)foodData
 {
-    if (!_productData)
+    if (!_foodData)
     {
-        _productData = [NSMutableArray array];
+        _foodData = [NSMutableArray array];
     }
-    return _productData;
+    return _foodData;
 }
 
 - (UITableView *)leftTableView
@@ -133,7 +133,7 @@
     }
     else
     {
-        return [self.productData[section] count];
+        return [self.foodData[section] count];
     }
 }
 
@@ -149,7 +149,7 @@
     else
     {
         RightTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier_Right forIndexPath:indexPath];
-        FoodModel *model = self.productData[indexPath.section][indexPath.row];
+        FoodModel *model = self.foodData[indexPath.section][indexPath.row];
         cell.model = model;
         return cell;
     }
@@ -176,25 +176,24 @@
     return nil;
 }
 
+// TableView分区标题即将展示
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(nonnull UIView *)view forSection:(NSInteger)section
 {
+    // 当前的tableView是RightTableView，RightTableView滚动的方向向上，RightTableView是用户拖拽而产生滚动的（（主要判断RightTableView用户拖拽而滚动的，还是点击LeftTableView而滚动的）
     if ((_rightTableView == tableView) && !_isScrollDown && _rightTableView.dragging)
     {
         [self selectRowAtIndexPath:section];
     }
 }
 
+// TableView分区标题展示结束
 - (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section
 {
+    // 当前的tableView是RightTableView，RightTableView滚动的方向向下，RightTableView是用户拖拽而产生滚动的（（主要判断RightTableView用户拖拽而滚动的，还是点击LeftTableView而滚动的）
     if ((_rightTableView == tableView) && _isScrollDown && _rightTableView.dragging)
     {
         [self selectRowAtIndexPath:section + 1];
     }
-}
-
-- (void)selectRowAtIndexPath:(NSInteger)index
-{
-    [_leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
@@ -206,8 +205,14 @@
     }
 }
 
-#pragma mark - UISrcollViewDelegate
+// 当拖动右边TableView的时候，处理左边TableView
+- (void)selectRowAtIndexPath:(NSInteger)index
+{
+    [_leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+}
 
+#pragma mark - UISrcollViewDelegate
+// 标记一下RightTableView的滚动方向，是向上还是向下
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     static CGFloat lastOffsetY = 0;
