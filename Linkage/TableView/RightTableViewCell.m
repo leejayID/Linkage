@@ -12,7 +12,8 @@
 @interface RightTableViewCell ()
 
 @property (nonatomic, strong) UIImageView *imageV;
-@property (nonatomic, strong) UILabel *name;
+@property (nonatomic, strong) UILabel *nameLabel;
+@property (nonatomic, strong) UILabel *priceLabel;
 
 @end
 
@@ -22,12 +23,17 @@
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
     {
-        self.imageV = [[UIImageView alloc] initWithFrame:CGRectMake(10, 15, 50, 50)];
+        self.imageV = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 50, 50)];
         [self.contentView addSubview:self.imageV];
 
-        self.name = [[UILabel alloc] initWithFrame:CGRectMake(70, 15, SCREEN_WIDTH - 70, 30)];
-        self.name.font = [UIFont systemFontOfSize:14];
-        [self.contentView addSubview:self.name];
+        self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 10, 200, 30)];
+        self.nameLabel.font = [UIFont systemFontOfSize:14];
+        [self.contentView addSubview:self.nameLabel];
+        
+        self.priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 45, 200, 30)];
+        self.priceLabel.font = [UIFont systemFontOfSize:14];
+        self.priceLabel.textColor = [UIColor redColor];
+        [self.contentView addSubview:self.priceLabel];
     }
     return self;
 }
@@ -35,7 +41,8 @@
 - (void)setModel:(FoodModel *)model
 {
     [self.imageV sd_setImageWithURL:[NSURL URLWithString:model.picture]];
-    self.name.text = model.name;
+    self.nameLabel.text = model.name;
+    self.priceLabel.text = [NSString stringWithFormat:@"￥%@",@(model.min_price)];
 }
 
 - (void)awakeFromNib
