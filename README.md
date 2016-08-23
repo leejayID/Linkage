@@ -1,13 +1,15 @@
 # 【联动】：两个TableView之间的联动，TableView与CollectionView之间的联动
 ## 前言
 现在市面上有很多app都有联动功能，有的是两个TableView之间的联动，比如美团外卖，百度外卖，饿了么等等。有的是TablView与CollectionView之间的联动，比如礼物说等等。
-本文仿造了美团外卖和礼物说，分别实现了两个TableView之间和TablView与CollectionView之间的联动效果，效果图看下面的gif图。先附上gif图的demo下载链接，[【GitHub】](https://github.com/leejayID/Linkage)、[【Code4App】](https://github.com/leejayID/Linkage)、[【OSChina】](https://git.oschina.net/Lee_Jay/Linkage)，配合demo一起看文章，效果会更佳。
+
+本文仿造了美团外卖和礼物说，分别实现了两个TableView之间和TablView与CollectionView之间的联动效果，效果图看下面的gif图。先附上gif图的demo下载链接，[【GitHub】](https://github.com/leejayID/Linkage)、[【Code4App】](https://github.com/leejayID/Linkage)、[【OSChina】](https://git.oschina.net/Lee_Jay/Linkage)，简书文章[地址]()，配合demo一起看文章，效果会更佳。
 
 ![Usage](./Untitled.gif)
 
 ## 正文
 ### 一、TableView与TableView之间的联动
 下面来说下实现两个TableView之间联动的主要思路：
+
 先解析数据装入模型，```objectWithDictionary:```是将字典转化为模型，这个工具是我用runtime写的，一行代码解析数据，具体使用方法可以参考我简书上另一篇文章[【Objective-C中的Runtime】](http://www.jianshu.com/p/3e050ec3b759)。
 ```objc
 NSString *path = [[NSBundle mainBundle] pathForResource:@"meituan" ofType:@"json"];
@@ -110,7 +112,9 @@ for (NSDictionary *dict in foods)
 这样就实现了两个TableView之间的联动，是不是很简单。
 ### 二、TableView与CollectionView之间的联动
 TableView与CollectionView之间的联动与两个TableView之间的联动逻辑类似。
+
 下面说下实现TableView与CollectionView之间的联动的主要思路：
+
 还是一样，先解析数据装入模型。
 
 ```objc
@@ -210,5 +214,7 @@ TableView与CollectionView之间的联动就这么实现了，是不是也很简
 
 ## 最后
 由于笔者水平有限，文中如果有错误的地方，或者有更好的方法，还望大神指正。
+
 附上本文的所有demo下载链接，[【GitHub】](https://github.com/leejayID/Linkage)、[【Code4App】](https://github.com/leejayID/Linkage)、[【OSChina】](https://git.oschina.net/Lee_Jay/Linkage)，配合demo一起看文章，效果会更佳。
+
 如果你看完后觉得对你有所帮助，还望在GitHub上点个star。赠人玫瑰，手有余香。
