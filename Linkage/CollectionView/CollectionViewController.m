@@ -7,14 +7,14 @@
 //
 
 #import "CollectionCategoryModel.h"
-#import "CollectionViewHeaderView.h"
 #import "CollectionViewCell.h"
 #import "CollectionViewController.h"
+#import "CollectionViewHeaderView.h"
 #import "LJCollectionViewFlowLayout.h"
 #import "LeftTableViewCell.h"
 
 @interface CollectionViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate,
-    UICollectionViewDataSource>
+                                        UICollectionViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -49,9 +49,9 @@
     for (NSDictionary *dict in categories)
     {
         CollectionCategoryModel *model =
-        [CollectionCategoryModel objectWithDictionary:dict];
+            [CollectionCategoryModel objectWithDictionary:dict];
         [self.dataSource addObject:model];
-        
+
         NSMutableArray *datas = [NSMutableArray array];
         for (SubCategoryModel *sModel in model.subcategories)
         {
@@ -59,11 +59,10 @@
         }
         [self.collectionDatas addObject:datas];
     }
-    
+
     [self.tableView reloadData];
     [self.collectionView reloadData];
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
-
 }
 
 #pragma mark - Getters
@@ -97,8 +96,7 @@
         _tableView.rowHeight = 55;
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.separatorColor = [UIColor clearColor];
-        [_tableView registerClass:[LeftTableViewCell class]
-            forCellReuseIdentifier:kCellIdentifier_Left];
+        [_tableView registerClass:[LeftTableViewCell class] forCellReuseIdentifier:kCellIdentifier_Left];
     }
     return _tableView;
 }
@@ -121,12 +119,11 @@
         _collectionView.showsHorizontalScrollIndicator = NO;
         [_collectionView setBackgroundColor:[UIColor clearColor]];
         //注册cell
-        [self.collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifier_CollectionView];
+        [_collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifier_CollectionView];
         //注册分区头标题
-        [self.collectionView registerClass:[CollectionViewHeaderView class]
-                forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-                       withReuseIdentifier:@"CollectionViewHeaderView"];
-        [self.view addSubview:_collectionView];
+        [_collectionView registerClass:[CollectionViewHeaderView class]
+            forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                   withReuseIdentifier:@"CollectionViewHeaderView"];
     }
     return _collectionView;
 }
@@ -191,8 +188,8 @@
         reuseIdentifier = @"CollectionViewHeaderView";
     }
     CollectionViewHeaderView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                                withReuseIdentifier:reuseIdentifier
-                                                                       forIndexPath:indexPath];
+                                                                        withReuseIdentifier:reuseIdentifier
+                                                                               forIndexPath:indexPath];
     if ([kind isEqualToString:UICollectionElementKindSectionHeader])
     {
         CollectionCategoryModel *model = self.dataSource[indexPath.section];
@@ -237,7 +234,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     static float lastOffsetY = 0;
-    
+
     if (self.collectionView == scrollView)
     {
         _isScrollDown = lastOffsetY < scrollView.contentOffset.y;
