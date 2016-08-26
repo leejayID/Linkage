@@ -181,8 +181,8 @@ for (NSDictionary *dict in categories)
 
     if (self.collectionView == scrollView)
     {
-    _isScrollDown = lastOffsetY < scrollView.contentOffset.y;
-    lastOffsetY = scrollView.contentOffset.y;
+        _isScrollDown = lastOffsetY < scrollView.contentOffset.y;
+        lastOffsetY = scrollView.contentOffset.y;
     }
 }
 
