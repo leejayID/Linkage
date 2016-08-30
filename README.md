@@ -1,6 +1,6 @@
 # 【联动】：两个TableView之间的联动，TableView与CollectionView之间的联动
 ## 前言
-现在市面上有很多app都有联动功能，有的是两个TableView之间的联动，比如美团外卖，百度外卖，饿了么等等。有的是TablView与CollectionView之间的联动，比如礼物说等等。
+现在市面上有很多app都有联动功能，有的是两个TableView之间的联动，比如美团外卖，百度外卖，饿了么等等。有的是TableView与CollectionView之间的联动，比如礼物说等等。
 
 本文仿造了美团外卖和礼物说，分别实现了两个TableView之间和TablView与CollectionView之间的联动效果，效果图看下面的gif图。
 
