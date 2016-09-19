@@ -45,11 +45,6 @@
     self.priceLabel.text = [NSString stringWithFormat:@"￥%@",@(model.min_price)];
 }
 
-- (void)awakeFromNib
-{
-    // Initialization code
-}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

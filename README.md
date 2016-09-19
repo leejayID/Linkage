@@ -128,8 +128,7 @@ NSArray *categories = dict[@"data"][@"categories"];
 
 for (NSDictionary *dict in categories)
 {
-    CollectionCategoryModel *model =
-    [CollectionCategoryModel objectWithDictionary:dict];
+    CollectionCategoryModel *model = [CollectionCategoryModel objectWithDictionary:dict];
     [self.dataSource addObject:model];
 
     NSMutableArray *datas = [NSMutableArray array];
