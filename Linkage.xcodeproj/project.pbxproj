@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F24B3FF1D9B638D00B0C265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F24B3FE1D9B638D00B0C265 /* LaunchScreen.storyboard */; };
 		2F6793541D6AF4340071352F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6793531D6AF4340071352F /* main.m */; };
 		2F6793571D6AF4340071352F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6793561D6AF4340071352F /* AppDelegate.m */; };
 		2F67935A1D6AF4340071352F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6793591D6AF4340071352F /* ViewController.m */; };
 		2F67935D1D6AF4340071352F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F67935B1D6AF4340071352F /* Main.storyboard */; };
 		2F67935F1D6AF4340071352F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F67935E1D6AF4340071352F /* Assets.xcassets */; };
-		2F6793621D6AF4340071352F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F6793601D6AF4340071352F /* LaunchScreen.storyboard */; };
 		2FE859D41D6AF9110025AE3E /* LJCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE859D31D6AF9110025AE3E /* LJCollectionViewFlowLayout.m */; };
 		2FE859D91D6AF9590025AE3E /* NSObject+Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE859D61D6AF9590025AE3E /* NSObject+Property.m */; };
 		2FE859DA1D6AF9590025AE3E /* UIViewController+Dealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE859D81D6AF9590025AE3E /* UIViewController+Dealloc.m */; };
@@ -44,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F24B3FE1D9B638D00B0C265 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F67934F1D6AF4340071352F /* Linkage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Linkage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F6793531D6AF4340071352F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2F6793551D6AF4340071352F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		2F6793591D6AF4340071352F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2F67935C1D6AF4340071352F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F67935E1D6AF4340071352F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2F6793611D6AF4340071352F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F6793631D6AF4340071352F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FE859D21D6AF9110025AE3E /* LJCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		2FE859D31D6AF9110025AE3E /* LJCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJCollectionViewFlowLayout.m; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 				2F6793591D6AF4340071352F /* ViewController.m */,
 				2F67935B1D6AF4340071352F /* Main.storyboard */,
 				2F67935E1D6AF4340071352F /* Assets.xcassets */,
-				2F6793601D6AF4340071352F /* LaunchScreen.storyboard */,
+				2F24B3FE1D9B638D00B0C265 /* LaunchScreen.storyboard */,
 				2F6793631D6AF4340071352F /* Info.plist */,
 				2F6793521D6AF4340071352F /* Supporting Files */,
 			);
@@ -277,7 +277,7 @@
 		2F6793471D6AF4330071352F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = LeeJay;
 				TargetAttributes = {
 					2F67934E1D6AF4340071352F = {
@@ -308,10 +308,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F6793621D6AF4340071352F /* LaunchScreen.storyboard in Resources */,
 				2FE85A281D6B04570025AE3E /* liwushuo.json in Resources */,
 				2F67935F1D6AF4340071352F /* Assets.xcassets in Resources */,
 				2F67935D1D6AF4340071352F /* Main.storyboard in Resources */,
+				2F24B3FF1D9B638D00B0C265 /* LaunchScreen.storyboard in Resources */,
 				2FE859F91D6AFAAB0025AE3E /* meituan.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,14 +366,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		2F6793601D6AF4340071352F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2F6793611D6AF4340071352F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -391,8 +383,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -436,8 +430,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
