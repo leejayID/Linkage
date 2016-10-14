@@ -24,7 +24,6 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.datas = @[@"UITableView",@"UICollectionView"];
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
