@@ -114,8 +114,8 @@
             // 给header的结构信息的frame重新赋值
             attributes.frame = rect;
             // 如果按照正常情况下,header离开屏幕被系统回收，而header的层次关系又与cell相等，如果不去理会，会出现cell在header上面的情况
-            // 通过打印可以知道cell的层次关系zIndex数值为0，我们可以将header的zIndex设置成1，如果不放心，也可以将它设置成非常大，这里随便填了个7
-            attributes.zIndex = 7;
+            // 通过打印可以知道cell的层次关系zIndex数值为0，我们可以将header的zIndex设置成1，如果不放心，也可以将它设置成非常大
+            attributes.zIndex = 1024;
         }
     }
 

@@ -13,7 +13,7 @@
 #import "LJCollectionViewFlowLayout.h"
 #import "LeftTableViewCell.h"
 
-@interface CollectionViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate,
+@interface CollectionViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegateFlowLayout,
                                         UICollectionViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
