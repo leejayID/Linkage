@@ -1,4 +1,4 @@
-#【Objective-C 联动】：两个 TableView 之间的联动，TableView 与 CollectionView 之间的联动
+# 【Objective-C 联动】：两个 TableView 之间的联动，TableView 与 CollectionView 之间的联动
 
 ## 前言
 现在市面上有很多 app 都有联动功能，有的是两个 TableView 之间的联动，比如美团外卖，百度外卖，饿了么等等。有的是 TableView 与 CollectionView 之间的联动，比如礼物说等等。
