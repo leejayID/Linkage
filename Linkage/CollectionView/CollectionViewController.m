@@ -20,6 +20,7 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) NSMutableArray *collectionDatas;
+@property (nonatomic, strong) LJCollectionViewFlowLayout *flowLayout;
 
 @end
 
@@ -101,18 +102,23 @@
     return _tableView;
 }
 
+- (LJCollectionViewFlowLayout *)flowLayout
+{
+    if (!_flowLayout)
+    {
+        _flowLayout = [[LJCollectionViewFlowLayout alloc] init];
+        _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        _flowLayout.minimumInteritemSpacing = 2;
+        _flowLayout.minimumLineSpacing = 2;
+    }
+    return _flowLayout;
+}
+
 - (UICollectionView *)collectionView
 {
     if (!_collectionView)
     {
-        LJCollectionViewFlowLayout *flowlayout = [[LJCollectionViewFlowLayout alloc] init];
-        //设置滚动方向
-        [flowlayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-        //左右间距
-        flowlayout.minimumInteritemSpacing = 2;
-        //上下间距
-        flowlayout.minimumLineSpacing = 2;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(2 + 80, 2 + 64, SCREEN_WIDTH - 80 - 4, SCREEN_HEIGHT - 64 - 4) collectionViewLayout:flowlayout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(2 + 80, 2 + 64, SCREEN_WIDTH - 80 - 4, SCREEN_HEIGHT - 64 - 4) collectionViewLayout:self.flowLayout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.showsVerticalScrollIndicator = NO;
@@ -146,8 +152,31 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _selectIndex = indexPath.row;
-    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:_selectIndex] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+    
+    // 解决点击 TableView 后 CollectionView 的 Header 遮挡问题。
+    [self scrollToTopOfSection:_selectIndex animated:YES];
+    
+//    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:_selectIndex] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
+    
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_selectIndex inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+
+#pragma mark - 解决点击 TableView 后 CollectionView 的 Header 遮挡问题
+
+- (void)scrollToTopOfSection:(NSInteger)section animated:(BOOL)animated
+{
+    CGRect headerRect = [self frameForHeaderForSection:section];
+    CGPoint topOfHeader = CGPointMake(0, headerRect.origin.y - _collectionView.contentInset.top);
+    [self.collectionView setContentOffset:topOfHeader animated:animated];
+}
+
+- (CGRect)frameForHeaderForSection:(NSInteger)section
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:1 inSection:section];
+    UICollectionViewLayoutAttributes *attributes = [self.collectionView layoutAttributesForItemAtIndexPath:indexPath];
+    CGRect frameForFirstCell = attributes.frame;
+    CGFloat headerHeight = [self collectionView:_collectionView layout:self.flowLayout referenceSizeForHeaderInSection:section].height;
+    return CGRectOffset(frameForFirstCell, 0, -headerHeight);
 }
 
 #pragma mark - UICollectionView DataSource Delegate

@@ -10,9 +10,4 @@
 
 @interface LJCollectionViewFlowLayout : UICollectionViewFlowLayout
 
-/**
- *  导航栏高度，默认为0
- */
-@property (nonatomic, assign) CGFloat navHeight;
-
 @end
