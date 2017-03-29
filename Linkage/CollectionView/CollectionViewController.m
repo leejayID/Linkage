@@ -157,7 +157,6 @@
     [self scrollToTopOfSection:_selectIndex animated:YES];
     
 //    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:_selectIndex] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
-    
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_selectIndex inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
@@ -172,7 +171,7 @@
 
 - (CGRect)frameForHeaderForSection:(NSInteger)section
 {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:1 inSection:section];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:section];
     UICollectionViewLayoutAttributes *attributes = [self.collectionView layoutAttributesForItemAtIndexPath:indexPath];
     CGRect frameForFirstCell = attributes.frame;
     CGFloat headerHeight = [self collectionView:_collectionView layout:self.flowLayout referenceSizeForHeaderInSection:section].height;
