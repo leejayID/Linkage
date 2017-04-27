@@ -222,5 +222,5 @@ TableView 与 CollectionView 之间的联动就这么实现了，是不是也很
 
 ## 建议 & 支持
 
-如有问题请[与我联系](leejay_email@163.com)
+如有问题请[与我联系](mailto:leejay_email@163.com)
 
