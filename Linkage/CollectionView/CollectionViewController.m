@@ -153,11 +153,13 @@
 {
     _selectIndex = indexPath.row;
     
+    // http://stackoverflow.com/questions/22100227/scroll-uicollectionview-to-section-header-view
     // 解决点击 TableView 后 CollectionView 的 Header 遮挡问题。
     [self scrollToTopOfSection:_selectIndex animated:YES];
     
 //    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:_selectIndex] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_selectIndex inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_selectIndex inSection:0]
+                          atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 #pragma mark - 解决点击 TableView 后 CollectionView 的 Header 遮挡问题
@@ -172,10 +174,8 @@
 - (CGRect)frameForHeaderForSection:(NSInteger)section
 {
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:section];
-    UICollectionViewLayoutAttributes *attributes = [self.collectionView layoutAttributesForItemAtIndexPath:indexPath];
-    CGRect frameForFirstCell = attributes.frame;
-    CGFloat headerHeight = [self collectionView:_collectionView layout:self.flowLayout referenceSizeForHeaderInSection:section].height;
-    return CGRectOffset(frameForFirstCell, 0, -headerHeight);
+    UICollectionViewLayoutAttributes *attributes = [self.collectionView.collectionViewLayout layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:indexPath];
+    return attributes.frame;
 }
 
 #pragma mark - UICollectionView DataSource Delegate
