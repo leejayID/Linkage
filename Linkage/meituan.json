@@ -27,7 +27,8 @@
                                 "pic_url": ""
                                 }]
         },
-        "food_spu_tags": [{
+        "food_spu_tags": [
+                          {
                           "tag": "100",
                           "name": "热销",
                           "icon": "http://p1.meituan.net/xianfu/10ba72e043ef4eca806cafb1a90a22662048.png",

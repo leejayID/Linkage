@@ -201,15 +201,26 @@
     if (_leftTableView == tableView)
     {
         _selectIndex = indexPath.row;
-        [_rightTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:_selectIndex] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-        [_leftTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_selectIndex inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        [self scrollToTopOfSection:_selectIndex animated:YES];
+        [_leftTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_selectIndex inSection:0]
+                              atScrollPosition:UITableViewScrollPositionTop
+                                      animated:YES];
     }
+}
+
+- (void)scrollToTopOfSection:(NSInteger)section animated:(BOOL)animated
+{
+    CGRect headerRect = [self.rightTableView rectForSection:section];
+    CGPoint topOfHeader = CGPointMake(0, headerRect.origin.y - _rightTableView.contentInset.top);
+    [self.rightTableView setContentOffset:topOfHeader animated:animated];
 }
 
 // 当拖动右边TableView的时候，处理左边TableView
 - (void)selectRowAtIndexPath:(NSInteger)index
 {
-    [_leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+    [_leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]
+                                animated:YES
+                          scrollPosition:UITableViewScrollPositionTop];
 }
 
 #pragma mark - UISrcollViewDelegate
