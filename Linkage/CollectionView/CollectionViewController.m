@@ -14,7 +14,7 @@
 #import "LeftTableViewCell.h"
 
 static float kLeftTableViewWidth = 80.f;
-static float kCollectionViewMargin = 2.f;
+static float kCollectionViewMargin = 3.f;
 
 @interface CollectionViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegateFlowLayout,
                                         UICollectionViewDataSource>
@@ -248,7 +248,7 @@ static float kCollectionViewMargin = 2.f;
 - (void)collectionView:(UICollectionView *)collectionView willDisplaySupplementaryView:(UICollectionReusableView *)view forElementKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath
 {
     // 当前CollectionView滚动的方向向上，CollectionView是用户拖拽而产生滚动的（主要是判断CollectionView是用户拖拽而滚动的，还是点击TableView而滚动的）
-    if (!_isScrollDown && collectionView.dragging)
+    if (!_isScrollDown && (collectionView.dragging || collectionView.decelerating))
     {
         [self selectRowAtIndexPath:indexPath.section];
     }
@@ -258,7 +258,7 @@ static float kCollectionViewMargin = 2.f;
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingSupplementaryView:(nonnull UICollectionReusableView *)view forElementOfKind:(nonnull NSString *)elementKind atIndexPath:(nonnull NSIndexPath *)indexPath
 {
     // 当前CollectionView滚动的方向向下，CollectionView是用户拖拽而产生滚动的（主要是判断CollectionView是用户拖拽而滚动的，还是点击TableView而滚动的）
-    if (_isScrollDown && collectionView.dragging)
+    if (_isScrollDown && (collectionView.dragging || collectionView.decelerating))
     {
         [self selectRowAtIndexPath:indexPath.section + 1];
     }

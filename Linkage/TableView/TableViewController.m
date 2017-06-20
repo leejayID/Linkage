@@ -190,7 +190,9 @@ static float kLeftTableViewWidth = 80.f;
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(nonnull UIView *)view forSection:(NSInteger)section
 {
     // 当前的tableView是RightTableView，RightTableView滚动的方向向上，RightTableView是用户拖拽而产生滚动的（（主要判断RightTableView用户拖拽而滚动的，还是点击LeftTableView而滚动的）
-    if ((_rightTableView == tableView) && !_isScrollDown && _rightTableView.dragging)
+    if ((_rightTableView == tableView)
+        && !_isScrollDown
+        && (_rightTableView.dragging || _rightTableView.decelerating))
     {
         [self selectRowAtIndexPath:section];
     }
@@ -200,7 +202,9 @@ static float kLeftTableViewWidth = 80.f;
 - (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     // 当前的tableView是RightTableView，RightTableView滚动的方向向下，RightTableView是用户拖拽而产生滚动的（（主要判断RightTableView用户拖拽而滚动的，还是点击LeftTableView而滚动的）
-    if ((_rightTableView == tableView) && _isScrollDown && _rightTableView.dragging)
+    if ((_rightTableView == tableView)
+        && _isScrollDown
+        && (_rightTableView.dragging || _rightTableView.decelerating))
     {
         [self selectRowAtIndexPath:section + 1];
     }
